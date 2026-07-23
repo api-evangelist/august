@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: live probe of /.well-known/ on august.com hosts
+host: https://august.com
+notes: >-
+  august.com is operated as a Shopify-hosted storefront (store id 13547835,
+  august-home.myshopify.com) for August Home / Yale smart-lock hardware. The
+  well-known documents below are the storefront's real published discovery
+  surface. The OpenID/OAuth documents are Shopify's customer-account identity
+  provider (issuer shopify.com/authentication/13547835), and the UCP document is
+  the store's Universal Commerce Protocol merchant profile advertising an
+  agentic-commerce MCP endpoint. developer.august.com (the Yale/August partner
+  developer portal) is a client-side SPA and returns its app shell for every
+  /.well-known/ path, so it exposes no real well-known documents.
+documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: august-openid-configuration.json
+    note: Shopify customer-account OIDC discovery (issuer shopify.com/authentication/13547835)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: august-oauth-authorization-server.json
+    note: RFC 8414 authorization-server metadata (Shopify customer-account)
+  - path: /.well-known/ucp
+    status: 200
+    file: august-ucp.json
+    note: Universal Commerce Protocol merchant profile (dev.ucp.shopping, MCP + embedded transports)
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404

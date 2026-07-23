@@ -1,8 +1,18 @@
 aid: august
 name: August
-description: 'August is a company surfaced as a portfolio company of bessemer-venture-partners, uncork-capital
-  and added to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: >-
+  August (August Home) makes Wi-Fi smart locks, keypads, doorbell cameras, and
+  the August Connect bridge for keyless, app-controlled home entry. Founded in
+  San Francisco and originally backed by Bessemer Venture Partners and Uncork
+  Capital, August was acquired by Assa Abloy and its product line is now unified
+  with Yale Home; the two brands share the August mobile app. August does not
+  publish a public device-control API for consumers — third-party integrations
+  rely on community-reverse-engineered endpoints or aggregators such as Seam, and
+  Yale/August partners use the developer.august.com portal. Its august.com
+  storefront (hosted on Shopify) does, however, expose an agent-native commerce
+  surface: a Universal Commerce Protocol (UCP) merchant profile at
+  /.well-known/ucp and a hosted shopping MCP server at /api/ucp/mcp for
+  buy-for-me agents, alongside Shopify customer-account OpenID Connect discovery.
 url: https://raw.githubusercontent.com/api-evangelist/august/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +21,31 @@ x-backed-by:
 - uncork-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://cdn.shopify.com/s/files/1/1354/7835/files/logoPng_10b2d83e-77e1-430a-8017-b882b2502d80.png?width=1200
 tags:
 - Company
 - Consumer
+- Smart Home
+- Smart Lock
+- IoT
+- Home Security
+- Access Control
+- Agentic Commerce
+- MCP
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,4 +54,32 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.august.com
+  url: https://august.com
+- type: DeveloperPortal
+  url: https://developer.august.com/
+- type: Support
+  url: https://support.august.com/
+- type: Blog
+  url: https://august.com/blogs/home
+- type: Pricing
+  url: https://august.com/pages/shop-all-products
+- type: SignUp
+  url: https://august.com/account
+- type: TermsOfService
+  url: https://august.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://august.com/policies/privacy-policy
+- type: MCPServer
+  name: August Home UCP shopping MCP
+  url: mcp/august-mcp.yml
+- type: WellKnown
+  url: well-known/august-well-known.yml
+- type: LLMsTxt
+  url: llms/august-llms.txt
+- type: DomainSecurity
+  url: security/august-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

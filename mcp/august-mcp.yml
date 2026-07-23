@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://august.com/llms.txt
+discovery: https://august.com/.well-known/ucp
+notes: >-
+  august.com (a Shopify-hosted storefront for August Home / Yale smart-lock
+  hardware) publishes a live, hosted Model Context Protocol server for
+  agent-driven commerce via the Universal Commerce Protocol (UCP, https://ucp.dev).
+  The server is advertised in the store's /llms.txt agent instructions and in the
+  /.well-known/ucp merchant profile under the dev.ucp.shopping service. It is a
+  commerce/shopping MCP (search, cart, checkout) for the storefront, NOT a device
+  or smart-lock control API. A raw tools/list call returns HTTP 422 until the
+  agent completes UCP profile discovery, so the tool list below is transcribed
+  from the store's published /llms.txt agent flow and the UCP dev.ucp.shopping
+  capability set (checkout, cart, fulfillment, discount), not from a live
+  tools/list dump.
+server:
+  name: august-home-ucp-shopping
+  protocol: ucp
+  ucp_versions: ['2026-04-08', '2026-01-23']
+  transport: http
+  url: https://august.com/api/ucp/mcp
+  canonical_url: https://august-home.myshopify.com/api/ucp/mcp
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  auth: none (read/search); buyer approval required to complete_checkout
+capabilities:
+  - dev.ucp.shopping.checkout
+  - dev.ucp.shopping.cart
+  - dev.ucp.shopping.fulfillment
+  - dev.ucp.shopping.discount
+tools:
+  - name: search_catalog
+    description: Find storefront products matching the buyer's intent.
+    source: https://august.com/llms.txt
+  - name: create_cart
+    description: Create a cart and add desired items.
+    source: https://august.com/llms.txt
+  - name: create_checkout
+    description: Start the purchase/checkout flow for a cart.
+    source: https://august.com/llms.txt
+  - name: update_checkout
+    description: Set shipping address and shipping method on a checkout.
+    source: https://august.com/llms.txt
+  - name: complete_checkout
+    description: Finalize the purchase. Requires explicit contemporaneous buyer approval of payment.
+    source: https://august.com/llms.txt
